@@ -1,0 +1,18 @@
+<ion-view title="Home" id="page2">
+  <ion-content padding="true" class="has-header">
+    <div class="list card" id="home-card22" ng-repeat="feed in feeds">
+      <ion-item class="item-icon-left" id="home-list-item13">
+        <i class="icon ion-calendar"></i>{{feed.title}}</ion-item>
+      <div class=" item item-image">
+        <img src="{{feed.pic}}" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+      </div>
+      <div class="item item-body" id="home-list-item-container3">
+        <div id="home-markdown3" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">
+          {{feed.content}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
