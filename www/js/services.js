@@ -100,7 +100,7 @@ angular.module('app.services', [])
 
     return {
 
-        postComment: function(username, content, uid) {
+        postComment: function(username, content) {
 
             var data = {
                 username: username,
@@ -110,8 +110,7 @@ angular.module('app.services', [])
 
             return $http.post('http://groupd.cs7141.comp.hkbu.edu.hk/comments/create',
                 data);
-
-        },
+        }
     }
 })
 

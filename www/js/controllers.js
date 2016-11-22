@@ -134,15 +134,11 @@ function ($scope, $stateParams, $ionicPopup, $state, Door) {
     $scope.data = {};
 
     $scope.postcom = function() {
-
         Door.postComment($scope.data.username, $scope.data.content)
             .success(function(data) {
               $state.go('infoPage');
             })
             .error(function(err) {
-              $ionicPopup.alert({
-                        title: failed,
-                    });
             });
        }
 }])
