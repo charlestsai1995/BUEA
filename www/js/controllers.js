@@ -126,10 +126,25 @@ function ($scope, $stateParams, auUniversities) {
 
 }])
 
-.controller('newCommentCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('newCommentCtrl', ['$scope', '$stateParams', '$state', 'Door',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, $stateParams, $ionicPopup, $state, Door) {
 
+    $scope.data = {};
 
+    $scope.postcom = function() {
+
+        Door.postComment($scope.data.username, $scope.data.content)
+            .success(function(data) {
+              $ionicPopup.alert({
+                        title: Success,
+                    });
+            })
+            .error(function(err) {
+              $ionicPopup.alert({
+                        title: failed,
+                    });
+            });
+       }
 }])

@@ -3,13 +3,13 @@
     <form id="newComment-form8" class="list">
       <label class="item item-input" id="newComment-input8">
         <span class="input-label">Name</span>
-        <input type="text" placeholder="">
+        <input type="text" placeholder="" ng-model="data.username">
       </label>
       <label class="item item-input item-stacked-label" id="newComment-input10">
         <span class="input-label">Content</span>
-        <input type="text" placeholder="">
+        <input type="text" placeholder="" ng-model="data.content">
       </label>
     </form>
-    <a ui-sref="infoPage" id="newComment-button12" class="button button-positive  button-block">Post</a>
+    <a ui-sref="infoPage" id="newComment-button12" class="button button-positive  button-block" ng-click="postcom()">Post</a>
   </ion-content>
 </ion-view>

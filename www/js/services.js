@@ -96,6 +96,24 @@ angular.module('app.services', [])
   }
 })
 
+.factory('Door', function($http) {
+
+    return {
+
+        postComment: function(username, content, uid) {
+
+            var data = {
+                username: username,
+                content: content,
+                uid: 'u1'
+            };
+
+            return $http.post('http://groupd.cs7141.comp.hkbu.edu.hk/comments/create',
+                data);
+
+        },
+    }
+})
 
 .factory('BlankFactory', [function(){
 
