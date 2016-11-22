@@ -80,6 +80,23 @@ angular.module('app.services', [])
   }
 })
 
+.factory('comments', function($http) {
+
+  var feeds = [];
+
+  return {
+    getFeeds: function(){
+
+      return $http.get("http://groupd.cs7141.comp.hkbu.edu.hk/comments/json")
+        .then(function(response){
+          feeds = response.data;
+          return feeds;
+      });
+    }
+  }
+})
+
+
 .factory('BlankFactory', [function(){
 
 }])

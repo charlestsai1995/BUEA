@@ -17,14 +17,14 @@
       <p style="color:#000000;">You don’t need to be fluent in another language to study abroad; in some partner institutions the teaching is in English. If you do need help, our Language Centre can advise you about opportunities to learn languages before you go.</p>
     </div>
     <h3 id="infoPage-heading2" style="color:#000000;">Comments:</h3>
-    <div class="list card" id="infoPage-card24">
+    <div class="list card" id="infoPage-card24" ng-repeat="feed in feeds">
       <ion-item class="item-avatar" id="infoPage-list-item30">
         <img src="img/face.png">
-        <h2>Chan Tai Man</h2>
+        <h2>{{feed.username}}</h2>
       </ion-item>
       <div class="item item-body" id="infoPage-list-item-container6">
         <div id="infoPage-markdown7" class="show-list-numbers-and-dots">
-          <p style="margin-top:0px;color:#000000;">Great university, unforgetable experience, love it. </p>
+          <p style="margin-top:0px;color:#000000;">{{feed.content}}</p>
         </div>
       </div>
     </div>
