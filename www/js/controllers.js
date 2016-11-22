@@ -182,6 +182,7 @@ function ($scope, $stateParams, $ionicPopup, $state, Upload) {
                     $ionicPopup.alert({
                         title: 'done',
                     });
+                    $state.go('infoPage');
                 }
             })
             .error(function(err) {
