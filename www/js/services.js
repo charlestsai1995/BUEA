@@ -96,7 +96,7 @@ angular.module('app.services', [])
   }
 })
 
-.factory('Door', function($http) {
+.factory('Upload', function($http) {
 
     return {
 
@@ -105,13 +105,43 @@ angular.module('app.services', [])
             var data = {
                 username: username,
                 content: content,
-                uid: 'u1'
+                uid: "u1"
             };
 
             return $http.post('http://groupd.cs7141.comp.hkbu.edu.hk/comments/create',
                 data);
         }
     }
+})
+
+.factory('Door', function($http) {
+
+    return {
+
+        signin: function(userid, password) {
+
+            var data = {
+                userid: userid,
+                password: password
+            };
+
+            return $http.post('http://simplelogin.cs7141.comp.hkbu.edu.hk/User/signin',
+                data);
+
+        },
+        signup: function(userid, password) {
+
+            var data = {
+                userid: userid,
+                password: password
+            };
+
+            return $http.post('http://simplelogin.cs7141.comp.hkbu.edu.hk/User/signup',
+                data);
+
+        }
+    }
+
 })
 
 .factory('BlankFactory', [function(){

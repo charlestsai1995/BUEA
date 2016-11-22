@@ -37,12 +37,31 @@ function ($scope, $stateParams) {
 
 }])
 
-.controller('loginCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('loginCtrl', ['$scope', '$stateParams', '$ionicPopup', '$state', 'Door',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+function ($scope, $stateParams, $ionicPopup, $state, Door) {
 
+    $scope.data = {};
 
+    $scope.login = function() {
+
+        Door.signin($scope.data.username, $scope.data.password)
+            .success(function(data) {
+
+                if (data == 'Granted')
+                    $state.go('tabsController.men');
+                else {
+
+                    $ionicPopup.alert({
+                        title: data,
+                    });
+                }
+            })
+            .error(function(err) {
+                console.log("err: " + err)
+            });
+        };
 }])
 
 .controller('forumCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -126,19 +145,47 @@ function ($scope, $stateParams, auUniversities) {
 
 }])
 
-.controller('newCommentCtrl', ['$scope', '$stateParams', '$state', 'Door',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+/*.controller('newCommentCtrl', ['$scope', '$stateParams', '$state', 'Upload',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams, $ionicPopup, $state, Door) {
+function ($scope, $stateParams, $ionicPopup, $state, Upload) {
 
     $scope.data = {};
 
     $scope.postcom = function() {
-        Door.postComment($scope.data.username, $scope.data.content)
+        Upload.postComment($scope.data.username, $scope.data.content)
             .success(function(data) {
               $state.go('infoPage');
             })
             .error(function(err) {
             });
-       }
+       };
+
+}])*/
+
+.controller('newCommentCtrl', ['$scope', '$stateParams', '$ionicPopup', '$state', 'Upload',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+// You can include any angular dependencies as parameters for this function
+// TIP: Access Route Parameters for your page via $stateParams.parameterName
+function ($scope, $stateParams, $ionicPopup, $state, Upload) {
+
+    $scope.data = {};
+
+    $scope.login = function() {
+
+        Upload.postComment($scope.data.username, $scope.data.content)
+            .success(function(data) {
+
+                if (data == 'Granted')
+                    $state.go('tabsController.men');
+                else {
+
+                    $ionicPopup.alert({
+                        title: 'done',
+                    });
+                }
+            })
+            .error(function(err) {
+                console.log("err: " + err)
+            });
+        };
 }])
