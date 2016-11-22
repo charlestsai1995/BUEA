@@ -103,11 +103,11 @@ angular.module('app.services', [])
         postComment: function(username, content ) {
 
           var data = {
-            'Comments[username]': username,
-            'Comments[content]': content,
-            'Comments[uid]': 1
+            username: username,
+            content: content,
+            uid: '1'
           }
-          $http.post('http://groupd.cs7141.comp.hkbu.edu.hk/comments/create', data, function(resp) {});
+          $http.post('http://groupd.cs7141.comp.hkbu.edu.hk/comments/create', data);
 
         }
     }
