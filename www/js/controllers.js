@@ -137,9 +137,7 @@ function ($scope, $stateParams, $ionicPopup, $state, Door) {
 
         Door.postComment($scope.data.username, $scope.data.content)
             .success(function(data) {
-              $ionicPopup.alert({
-                        title: Success,
-                    });
+              $state.go('infoPage');
             })
             .error(function(err) {
               $ionicPopup.alert({
