@@ -50,7 +50,7 @@ function ($scope, $stateParams, $ionicPopup, $state, Door) {
             .success(function(data) {
 
                 if (data == 'Granted')
-                    $state.go('tabsController.men');
+                    $state.go('home');
                 else {
 
                     $ionicPopup.alert({
@@ -176,7 +176,7 @@ function ($scope, $stateParams, $ionicPopup, $state, Upload) {
             .success(function(data) {
 
                 if (data == 'Granted')
-                    $state.go('tabsController.men');
+                    $state.go('infoPage');
                 else {
 
                     $ionicPopup.alert({

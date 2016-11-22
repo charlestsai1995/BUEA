@@ -100,16 +100,15 @@ angular.module('app.services', [])
 
     return {
 
-        postComment: function(username, content) {
+        postComment: function(username, content ) {
 
-            var data = {
-                username: username,
-                content: content,
-                uid: "u1"
-            };
+          var data = {
+            'Comments[username]': username,
+            'Comments[content]': content,
+            'Comments[uid]': 1
+          }
+          $http.post('http://groupd.cs7141.comp.hkbu.edu.hk/comments/create', data, function(resp) {});
 
-            return $http.post('http://groupd.cs7141.comp.hkbu.edu.hk/comments/create',
-                data);
         }
     }
 })
