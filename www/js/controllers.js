@@ -50,7 +50,7 @@ function ($scope, $stateParams, $ionicPopup, $state, Door) {
             .success(function(data) {
 
                 if (data == 'Granted')
-                    $state.go('home');
+                    $state.go('tabsController.home');
                 else {
 
                     $ionicPopup.alert({
@@ -170,23 +170,20 @@ function ($scope, $stateParams, $ionicPopup, $state, Upload) {
 
     $scope.data = {};
 
-    $scope.login = function() {
+    $scope.postcom = function() {
 
         Upload.postComment($scope.data.username, $scope.data.content)
             .success(function(data) {
-
-                if (data == 'Granted')
-                    $state.go('infoPage');
-                else {
-
                     $ionicPopup.alert({
                         title: 'done',
                     });
                     $state.go('infoPage');
-                }
             })
             .error(function(err) {
-                console.log("err: " + err)
+              $ionicPopup.alert({
+                  title: 'failed',
+              });
+              $state.go('infoPage');
             });
         };
 }])

@@ -1,5 +1,6 @@
 <ion-view view-title="New Comment" id="page11">
   <ion-content class="padding">
+    <form id="comment-form1" class="list">
       <div class="list list-inset">
           <label class="item item-input">
               <input type="text" placeholder="Username" ng-model="data.username">
@@ -8,6 +9,7 @@
               <input type="text" placeholder="Content" ng-model="data.content">
           </label>
       </div>
-      <button class="button button-block button-calm" ng-click="login()">Submit</button>
+      <button class="button button-block button-calm" ng-click="postcom()">Submit</button>
+    </form>
   </ion-content>
 </ion-view>
